@@ -1,0 +1,106 @@
+body {
+	background-color: rgb(0,0,0);
+	color: rgb(255,255,255);
+	font-family: Helvetica;	
+	font-weight: lighter;
+}
+
+html, body {
+	height: 100%;	
+}
+
+.title {
+	font-size: 40px;	
+	font-family: Helvetica;
+	font-weight: lighter;
+}
+
+.label {
+	font-size: 12px;
+	color: rgb(150,150,150);	
+}
+
+.textbox {
+	font-size: 20px;
+	font-family: Helvetica;
+	font-weight: lighter;
+	border: none;
+	width: 100%;
+	background-color: rgb(220,220,220);	
+}
+
+.active {
+	background-color: rgb(255,255,255);	
+}
+
+.buttons {
+	position: fixed; 
+	bottom: 0px; 
+	left: 0px;
+	width: 100%;
+	text-align: center; 
+	background-color: rgb(0,0,0);
+	padding-top: 5px;
+	padding-bottom:5px;	
+	background-color: rgb(30,30,30);
+}
+
+table.buttons {
+	width: 100%; 
+	font-size: 9px;
+	border-collapse: collapse;
+}
+
+ul {
+	list-style-type: none;
+	font-size: 20px;
+	width: 100%;
+}
+
+ul li {
+	background-image:url(res/call.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px; 
+	padding-top: 5px;
+	padding-left: 60px;
+	padding-bottom: 10px;
+	margin-left: -40px;
+	margin-top: 10px;
+}
+
+#addContactForm {
+	visibility: hidden;
+	position: fixed; 
+	bottom: 50px;
+	width: 100%; 
+	background-color: rgb(0,0,0);
+	padding: 5px;	
+}
+
+td.label {
+	font-size: 9px;
+	color: rgb(255,255,255);
+	padding-bottom: 5px;	
+}
+
+.message {
+	position: absolute; 
+	left: 0px; 
+	top: 0px; 
+	width: 100%; 
+	text-align: center; 
+	padding-top: 200px;
+	background-color: rgb(0,0,0);
+	opacity: 0.8;	
+	visibility: hidden;
+}
+
+.button {
+	border: 1px solid rgb(255,255,255);
+	background-color: rgb(0,0,0); 
+	color: rgb(255,255,255); 
+	font-size: 25px; 
+	font-family: Helvetica;	
+	font-weight: lighter;	
+	width: 100px;
+}

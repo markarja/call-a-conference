@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,height=device-height" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=9;no-cache"/>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	 	<link rel="stylesheet" href="style.css" type="text/css">
+		<title>Call a Conference</title>
+		<script src="app.js"></script>
+	</head>
+	<body onload="displayContacts(false);">
+		<span class="title">my conferences</span>
+		<ul id="contacts" class="list"></ul>
+		<div id="addContactForm">
+			<span id="addFormTitle">ADD ENTRY</span>
+			<input type="hidden" id="ID" value="" />
+  			<div>
+				<span class="label">Description</span><br />
+				<input type="text" id="description" class="textbox" 
+					   onfocus="this.className = 'textbox active';"
+					   onblur="this.className = 'textbox';" />	
+			</div>
+			<div>
+				<span class="label">Number</span><br/>
+				<input type="text" id="number" class="textbox"
+				       onfocus="this.className = 'textbox active';"
+					   onblur="this.className = 'textbox';" />
+			</div>
+			<div>
+				<span class="label">Pin</span><br />
+				<input type="password" id="pin" class="textbox"
+				       onfocus="this.className = 'textbox active';"
+					   onblur="this.className = 'textbox';" />			
+			</div>
+			<br />
+			<div class="buttons">
+				<table class="buttons">
+					<tr>
+						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
+						<td><img src="res/placeholder.png" /></td>
+						<td><img src="res/arrow_left.png" onclick="hideAddForm();" /></td>
+					</tr>
+					<tr>
+						<td class="label">save</td>
+						<td class="label"></td>
+						<td class="label">back</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="buttons" id="mainButtons">
+			<table class="buttons">
+				<tr>
+					<td>
+						<img src="res/add.png" 
+						     onclick="document.getElementById('ID').value = '';displayAddForm('ADD ENTRY');" />
+					</td>
+					<td>
+						<img id="editContactsImage" src="res/edit.png" onclick="toggleEditOption(this.src.indexOf('edit.png') != -1);" />
+					</td>
+					<td> 
+						<img id="removeContactsImage" src="res/empty.png" onclick="toggleDeleteOption(this.src.indexOf('empty.png') != -1);" />
+					</td>
+				</tr>
+				<tr>
+					<td class="label">
+						add conference
+					</td>
+					<td class="label">
+						toggle edit
+					</td>
+					<td class="label">
+						toggle delete
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="message" class="message">
+			<span id="messageText"></span>
+			<br />
+			<br />
+			<button class="button" onclick="hideMessage();">ok</button>
+		</div>
+	</body>
+</html>
