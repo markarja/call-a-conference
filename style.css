@@ -3,6 +3,7 @@ body {
 	color: rgb(255,255,255);
 	font-family: Helvetica;	
 	font-weight: lighter;
+	margin: 0;
 }
 
 html, body {
@@ -10,6 +11,7 @@ html, body {
 }
 
 .title {
+	padding-left: 5px;
 	font-size: 40px;	
 	font-family: Helvetica;
 	font-weight: lighter;
