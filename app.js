@@ -1,3 +1,12 @@
+function init() {
+  window.addEventListener('popstate', 
+       function(event) { 
+          if(history.state != null) history.back(); 
+       clearAndHideAddForm(); 
+  });
+  displayContacts(0);
+}
+
 function displayContacts(action) {
 	var numberOfContacts = parseInt(localStorage["contacts"]) + 1; 
 	var list = document.getElementById('contacts');
