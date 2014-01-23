@@ -23,11 +23,14 @@ function displayAddForm(title) {
 	var list = document.getElementById("contacts");
 	list.innerHTML = '';
 	displayContacts(0);
+	if(window.history.length < 2) {
+          window.history.pushState(title, title, "index.html");
+        }	
 	document.getElementById('editContactsImage').src = 'res/edit.png';
 	document.getElementById('removeContactsImage').src = 'res/empty.png';
 	document.getElementById('addFormTitle').innerHTML = title;
 	document.getElementById('addContactForm').style.visibility = 'visible';
-    document.getElementById('mainButtons').style.visibility = 'hidden';
+        document.getElementById('mainButtons').style.visibility = 'hidden';
 }
 
 function hideAddForm() {
