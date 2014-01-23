@@ -1,15 +1,18 @@
 function init() {
-  window.addEventListener('popstate', 
-       function(event) { 
-          if(history.state != null) history.back(); 
-       clearAndHideAddForm(); 
+  window.addEventListener("popstate", 
+   function(event) {
+      if(document.getElementById("message").style.visibility == "visible") {
+    	 hideMessage(); 
+      } else if(document.getElementById("addContactForm").style.visibility == "visible") {
+    	 clearAndHideAddForm();
+      } 
   });
   displayContacts(0);
 }
 
 function displayContacts(action) {
 	var numberOfContacts = parseInt(localStorage["contacts"]) + 1; 
-	var list = document.getElementById('contacts');
+	var list = document.getElementById("contacts");
 	for(var i = 1;i < numberOfContacts;i++) {
 		if(localStorage[i + "_description"] != undefined) {
 			addEntry(i, action);
@@ -17,32 +20,32 @@ function displayContacts(action) {
 	}
 	
 	if(action == 1) {
-		document.getElementById('editContactsImage').src = 'res/edit_.png';
-		document.getElementById('removeContactsImage').src = 'res/empty.png';
+		document.getElementById("editContactsImage").src = "res/edit_.png";
+		document.getElementById("removeContactsImage").src = "res/empty.png";
 	} else if(action == 2) {
-		document.getElementById('removeContactsImage').src = 'res/empty_.png';
-		document.getElementById('editContactsImage').src = 'res/edit.png';
+		document.getElementById("removeContactsImage").src = "res/empty_.png";
+		document.getElementById("editContactsImage").src = "res/edit.png";
 	} else {
-		document.getElementById('editContactsImage').src = 'res/edit.png';
-		document.getElementById('removeContactsImage').src = 'res/empty.png';
+		document.getElementById("editContactsImage").src = "res/edit.png";
+		document.getElementById("removeContactsImage").src = "res/empty.png";
 	}
 }
 
 function displayAddForm(title) {
 	var list = document.getElementById("contacts");
-	list.innerHTML = '';
+	list.innerHTML = "";
 	displayContacts(0);
-        window.history.pushState(title, title, "index.html");
-	document.getElementById('editContactsImage').src = 'res/edit.png';
-	document.getElementById('removeContactsImage').src = 'res/empty.png';
-	document.getElementById('addFormTitle').innerHTML = title;
-	document.getElementById('addContactForm').style.visibility = 'visible';
-        document.getElementById('mainButtons').style.visibility = 'hidden';
+    window.history.pushState("addedit", title, "index.html");
+	document.getElementById("editContactsImage").src = "res/edit.png";
+	document.getElementById("removeContactsImage").src = "res/empty.png";
+	document.getElementById("addFormTitle").innerHTML = title;
+	document.getElementById("addContactForm").style.visibility = "visible";
+    document.getElementById("mainButtons").style.visibility = "hidden";
 }
 
 function hideAddForm() {
-	document.getElementById('addContactForm').style.visibility = 'hidden';
-	document.getElementById('mainButtons').style.visibility = 'visible';
+	document.getElementById("addContactForm").style.visibility = "hidden";
+	document.getElementById("mainButtons").style.visibility = "visible";
 }
 
 function clearAndHideAddForm() {
@@ -50,9 +53,8 @@ function clearAndHideAddForm() {
 	document.getElementById("number").value = "";
 	document.getElementById("pin").value = "";
 	document.getElementById("ID").value = "";
-	document.getElementById('addContactForm').style.visibility = 'hidden';
-        document.getElementById('mainButtons').style.visibility = 'visible';
-        document.getElementById('message').style.visibility = 'hidden';
+	document.getElementById("addContactForm").style.visibility = "hidden";
+    document.getElementById("mainButtons").style.visibility = "visible";
 }
 
 function getValueOf(id) {
@@ -63,8 +65,8 @@ function removeContact(id) {
 	localStorage.removeItem(id + "_description");
 	localStorage.removeItem(id + "_number");
 	localStorage.removeItem(id + "_pin");
-	var list = document.getElementById('contacts');
-	list.innerHTML = '';
+	var list = document.getElementById("contacts");
+	list.innerHTML = "";
 	displayContacts(2);
 }
 
@@ -90,19 +92,20 @@ function call(id) {
 }
 
 function saveContact(id, description, number, pin) {
-	if(description == '' || number == '') {
+	if(description == "" || number == "") {
 		document.getElementById("messageText").innerHTML = "You must enter a description and a number to save the entry.";
-		document.getElementById("message").style.visibility = 'visible';
-		document.getElementById('addContactForm').style.visibility = 'hidden';
+		document.getElementById("message").style.visibility = "visible";
+		document.getElementById("addContactForm").style.visibility = "hidden";
+		window.history.pushState("message", "message", "index.html");
 	} else {
 	
-		if(id != '') {
+		if(id != "") {
 			
 			localStorage[id + "_description"] = description;
 			localStorage[id + "_number"] = number;
 			localStorage[id + "_pin"] = pin;	
 			var list = document.getElementById("contacts");
-			list.innerHTML = '';
+			list.innerHTML = "";
 			displayContacts(0);
 			
 		} else {
@@ -151,17 +154,17 @@ function addEntry(id, action) {
 
 function toggleEditOption(toggle) {
 	var list = document.getElementById("contacts");
-	list.innerHTML = '';
+	list.innerHTML = "";
 	displayContacts(toggle ? 1 : 0);
 }
 
 function toggleDeleteOption(toggle) {
 	var list = document.getElementById("contacts");
-	list.innerHTML = '';
+	list.innerHTML = "";
 	displayContacts(toggle ? 2 : 0);
 }
 
 function hideMessage() {
-	document.getElementById('message').style.visibility = 'hidden';
-	document.getElementById('addContactForm').style.visibility = 'visible';	
+	document.getElementById("message").style.visibility = "hidden";
+	document.getElementById("addContactForm").style.visibility = "visible";	
 }
