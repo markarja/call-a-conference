@@ -44,7 +44,8 @@ function clearAndHideAddForm() {
 	document.getElementById("pin").value = "";
 	document.getElementById("ID").value = "";
 	document.getElementById('addContactForm').style.visibility = 'hidden';
-    document.getElementById('mainButtons').style.visibility = 'visible';
+        document.getElementById('mainButtons').style.visibility = 'visible';
+        document.getElementById('message').style.visibility = 'hidden';
 }
 
 function getValueOf(id) {
