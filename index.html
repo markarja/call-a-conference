@@ -39,7 +39,7 @@
 					<tr>
 						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left.png" onclick="hideAddForm();" /></td>
+						<td><img src="res/arrow_left.png" onclick="window.location = '?state=4';" /></td>
 					</tr>
 					<tr>
 						<td class="label">save</td>
@@ -54,7 +54,7 @@
 				<tr>
 					<td>
 						<img src="res/add.png" 
-						     onclick="document.getElementById('ID').value = '';displayAddForm('ADD ENTRY');" />
+						     onclick="window.location = '?state=1'" />
 					</td>
 					<td>
 						<img id="editContactsImage" src="res/edit.png" onclick="toggleEditOption(this.src.indexOf('edit.png') != -1);" />
@@ -80,7 +80,7 @@
 			<span id="messageText"></span>
 			<br />
 			<br />
-			<button class="button" onclick="hideMessage();">ok</button>
+			<button class="button" onclick="window.history.back();">ok</button>
 		</div>
 	</body>
 </html>
