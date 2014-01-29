@@ -117,7 +117,7 @@ function call(id) {
 
 function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
-		window.location = "?state=3&description=" + description + "&number=" + number + "&pin=" + pin; 
+		window.location = "index.html?state=3&description=" + description + "&number=" + number + "&pin=" + pin; 
 	} else {
 	
 		if(id != "") {
@@ -143,7 +143,7 @@ function saveContact(id, description, number, pin) {
 			
 		}
 		
-		window.location = '?state=4';
+		window.location = 'index.html?state=4';
 	}
 }
 
@@ -155,7 +155,7 @@ function addEntry(id, action) {
 	
 	if(action == 1) {
 		entry.onclick = function(event) {
-			window.location = "?state=2&id=" + this.id;
+			window.location = "index.html?state=2&id=" + this.id;
 		};
 		entry.style.backgroundImage = "url(res/edit.png)";	
 	} else if(action == 2) {
