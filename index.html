@@ -39,7 +39,7 @@
 					<tr>
 						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left.png" onclick="window.location = '?state=4';" /></td>
+						<td><img src="res/arrow_left.png" onclick="window.location = 'index.html?state=4';" /></td>
 					</tr>
 					<tr>
 						<td class="label">save</td>
@@ -53,8 +53,7 @@
 			<table class="buttons">
 				<tr>
 					<td>
-						<img src="res/add.png" 
-						     onclick="window.location = '?state=1'" />
+						<img src="res/add.png" onclick="window.location = 'index.html?state=1'" />
 					</td>
 					<td>
 						<img id="editContactsImage" src="res/edit.png" onclick="toggleEditOption(this.src.indexOf('edit.png') != -1);" />
