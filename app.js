@@ -1,3 +1,11 @@
+function getLocation() {
+	var url = window.location.href;
+	if (url.indexOf("?") > -1){
+		url = url.substr(0, url.indexOf("?"));
+	}
+	return url;
+}
+
 function getRequestParam(name) {
     var vars = [], hash;
     var hashes = window.location.href.slice(
@@ -117,7 +125,7 @@ function call(id) {
 
 function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
-		window.location = "index.html?state=3&description=" + description + "&number=" + number + "&pin=" + pin; 
+		window.location = getLocation() + "?state=3&description=" + description + "&number=" + number + "&pin=" + pin; 
 	} else {
 	
 		if(id != "") {
@@ -155,7 +163,7 @@ function addEntry(id, action) {
 	
 	if(action == 1) {
 		entry.onclick = function(event) {
-			window.location = "index.html?state=2&id=" + this.id;
+			window.location = getLocation() + "?state=2&id=" + this.id;
 		};
 		entry.style.backgroundImage = "url(res/edit.png)";	
 	} else if(action == 2) {
