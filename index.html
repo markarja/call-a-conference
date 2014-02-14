@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width,height=device-height, user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=10;no-cache"/>
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	 	<link rel="stylesheet" href="style.css" type="text/css">
 		<title>Call a Conference</title>
@@ -38,7 +39,7 @@
 					<tr>
 						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left.png" onclick="window.location = getLocation() + '?state=4';" /></td>
+						<td><img src="res/arrow_left.png" onclick="window.history.back();" /></td>
 					</tr>
 					<tr>
 						<td class="label">save</td>
@@ -52,7 +53,8 @@
 			<table class="buttons">
 				<tr>
 					<td>
-						<img src="res/add.png" onclick="window.location = getLocation() + '?state=1'" />
+						<img src="res/add.png" 
+						     onclick="document.getElementById('ID').value = '';displayAddForm('ADD ENTRY');" />
 					</td>
 					<td>
 						<img id="editContactsImage" src="res/edit.png" onclick="toggleEditOption(this.src.indexOf('edit.png') != -1);" />

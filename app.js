@@ -1,46 +1,14 @@
-function getLocation() {
-	var url = window.location.href;
-	if (url.indexOf("?") > -1){
-		url = url.substr(0, url.indexOf("?"));
-	}
-	return url;
-}
-
-function getRequestParam(name) {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(
-        window.location.href.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++) {
-      hash = hashes[i].split('=');
-      vars.push(hash[0]);
-      vars[hash[0]] = hash[1];
-    }
-    return vars[name];
-}
-
 function init() {
-  displayContacts(0);
-  var state = getRequestParam("state");
-  if(state != undefined) {
-	  if(state == 1) {
-		  displayAddForm("ADD ENTRY");
-	  } else if(state == 2) {
-		  editContact(getRequestParam("id"));
-	  } else if(state == 3) {
-		  displayAddForm("ADD ENTRY");
-		  var description = getRequestParam("description");
-		  var number = getRequestParam("number");
-		  var pin = getRequestParam("pin");
-		  document.getElementById("description").value = description;
-		  document.getElementById("number").value = number;
-		  document.getElementById("pin").value = pin;
-		  document.getElementById("messageText").innerHTML = "You must enter a description and a number to save the entry.";
-		  document.getElementById("message").style.visibility = "visible";
-		  document.getElementById("addContactForm").style.visibility = "hidden";
-	  } else if(state == 4) {
-		  window.history.go(-(window.history.length - 1));
+  window.addEventListener("popstate", function(event) { 
+	  if(document.getElementById("message").style.visibility == "visible") {
+		  hideMessage(); 
+	  } else if(document.getElementById("addContactForm").style.visibility == "visible") {
+		  clearAndHideAddForm();
 	  }
-  }
+	  return true;
+  });
+  window.history.pushState({"id":"main"}, null, "index.html#main");
+  displayContacts(0);
 }
 
 function displayContacts(action) {
@@ -51,7 +19,7 @@ function displayContacts(action) {
 			addEntry(i, action);
 		}
 	}
-	
+
 	if(action == 1) {
 		document.getElementById("editContactsImage").src = "res/edit_.png";
 		document.getElementById("removeContactsImage").src = "res/empty.png";
@@ -64,7 +32,8 @@ function displayContacts(action) {
 	}
 }
 
-function displayAddForm(title) {
+function displayAddForm(title) {	
+	window.history.pushState({"id":"form"}, null, "index.html#form");
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
@@ -87,6 +56,7 @@ function clearAndHideAddForm() {
 	document.getElementById("ID").value = "";
 	document.getElementById("addContactForm").style.visibility = "hidden";
     document.getElementById("mainButtons").style.visibility = "visible";
+    document.getElementById("message").style.visibility = "hidden";
 }
 
 function getValueOf(id) {
@@ -125,20 +95,23 @@ function call(id) {
 
 function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
-		window.location = getLocation() + "?state=3&description=" + description + "&number=" + number + "&pin=" + pin; 
+		window.history.pushState({"id":"message"}, null, "index.html#message");
+		document.getElementById("messageText").innerHTML = "You must enter a description and a number to save the entry.";
+		document.getElementById("message").style.visibility = "visible";
+		document.getElementById("addContactForm").style.visibility = "hidden";
 	} else {
-	
+
 		if(id != "") {
-			
+
 			localStorage[id + "_description"] = description;
 			localStorage[id + "_number"] = number;
 			localStorage[id + "_pin"] = pin;	
 			var list = document.getElementById("contacts");
 			list.innerHTML = "";
 			displayContacts(0);
-			
+
 		} else {
-		
+
 			if(!localStorage["contacts"]) {
 				localStorage["contacts"] = 0;
 			}
@@ -148,10 +121,9 @@ function saveContact(id, description, number, pin) {
 			localStorage[index + "_number"] = number;
 			localStorage[index + "_pin"] = pin;
 			addEntry(index, false);
-			
+
 		}
-		
-		window.location = 'index.html?state=4';
+		window.history.go(-1);
 	}
 }
 
@@ -160,10 +132,10 @@ function addEntry(id, action) {
 	var entry = document.createElement("li");
 	var remove = false;
 	var timeout = null;
-	
+
 	if(action == 1) {
 		entry.onclick = function(event) {
-			window.location = getLocation() + "?state=2&id=" + this.id;
+			editContact(this.id);
 		};
 		entry.style.backgroundImage = "url(res/edit.png)";	
 	} else if(action == 2) {
@@ -176,7 +148,7 @@ function addEntry(id, action) {
 			call(this.id);
 		};
 	}
-	
+
 	entry.setAttribute("id", id);
 	entry.appendChild(document.createTextNode(localStorage[id + "_description"]));
 	list.appendChild(entry);
