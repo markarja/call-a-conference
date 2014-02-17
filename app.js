@@ -3,20 +3,18 @@ function init() {
   document.addEventListener("deviceready", onDeviceReady, false);
   
   function onDeviceReady() {
-	  document.addEventListener("backbutton", onBackKeyDown, false);
-  }
-  
-  function onBackKeyDown() {
-	  if(document.getElementById("message").style.visibility == "visible") {
-		  hideMessage(); 
-	  } else if(document.getElementById("addContactForm").style.visibility == "visible") {
-		  clearAndHideAddForm();
-	  } else {
-		  navigator.app.exitApp();
-	  }
+	  
   }
   
   displayContacts(0);
+}
+
+function onBackKeyDown() {
+	if(document.getElementById("message").style.visibility == "visible") {
+	  hideMessage(); 
+  	} else if(document.getElementById("addContactForm").style.visibility == "visible") {
+	  clearAndHideAddForm();
+  	} 
 }
 
 function displayContacts(action) {
@@ -41,6 +39,7 @@ function displayContacts(action) {
 }
 
 function displayAddForm(title) {
+	document.addEventListener("backbutton", onBackKeyDown, false);
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
@@ -64,6 +63,7 @@ function clearAndHideAddForm() {
 	document.getElementById("addContactForm").style.visibility = "hidden";
     document.getElementById("mainButtons").style.visibility = "visible";
     document.getElementById("message").style.visibility = "hidden";
+    document.removeEventListener("backbutton", handleBackButton);
 }
 
 function getValueOf(id) {
