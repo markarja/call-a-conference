@@ -7,6 +7,7 @@
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	 	<link rel="stylesheet" href="style.css" type="text/css">
 		<title>Call a Conference</title>
+		<script src="phonegap.js"></script>		
 		<script src="app.js"></script>
 	</head>
 	<body onload="init();">
@@ -39,7 +40,7 @@
 					<tr>
 						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left.png" onclick="window.history.back();" /></td>
+						<td><img src="res/arrow_left.png" onclick="clearAndHideAddForm();" /></td>
 					</tr>
 					<tr>
 						<td class="label">save</td>
@@ -80,7 +81,7 @@
 			<span id="messageText"></span>
 			<br />
 			<br />
-			<button class="button" onclick="window.history.back();">ok</button>
+			<button class="button" onclick="hideMessage();">ok</button>
 		</div>
 	</body>
 </html>

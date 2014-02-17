@@ -1,13 +1,21 @@
 function init() {
-  window.addEventListener("popstate", function(event) { 
+  
+  document.addEventListener("deviceready", onDeviceReady, false);
+  
+  function onDeviceReady() {
+	  document.addEventListener("backbutton", onBackKeyDown, false);
+  }
+  
+  function onBackKeyDown() {
 	  if(document.getElementById("message").style.visibility == "visible") {
 		  hideMessage(); 
 	  } else if(document.getElementById("addContactForm").style.visibility == "visible") {
 		  clearAndHideAddForm();
+	  } else {
+		  navigator.app.exitApp();
 	  }
-	  return true;
-  });
-  window.history.pushState({"id":"main"}, null, "index.html#main");
+  }
+  
   displayContacts(0);
 }
 
@@ -32,8 +40,7 @@ function displayContacts(action) {
 	}
 }
 
-function displayAddForm(title) {	
-	window.history.pushState({"id":"form"}, null, "index.html#form");
+function displayAddForm(title) {
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
@@ -95,7 +102,6 @@ function call(id) {
 
 function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
-		window.history.pushState({"id":"message"}, null, "index.html#message");
 		document.getElementById("messageText").innerHTML = "You must enter a description and a number to save the entry.";
 		document.getElementById("message").style.visibility = "visible";
 		document.getElementById("addContactForm").style.visibility = "hidden";
