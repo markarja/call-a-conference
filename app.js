@@ -1,12 +1,10 @@
 function init() {
-  
-  document.addEventListener("deviceready", onDeviceReady, false);
-  
-  function onDeviceReady() {
-	  
-  }
-  
-  displayContacts(0);
+	document.addEventListener("deviceready", onDeviceReady, false);
+  	displayContacts(0);
+}
+
+function onDeviceReady() {
+	document.getElementById("loadingoverlay").style.visibility = "hidden";
 }
 
 function onBackKeyDown() {
