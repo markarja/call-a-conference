@@ -1,6 +1,8 @@
 function init() {
+	
 	document.addEventListener("deviceready", onDeviceReady, false);
-  	displayContacts(0);
+	
+	displayContacts(0);
 }
 
 function onDeviceReady() {
@@ -16,10 +18,10 @@ function onBackKeyDown() {
 }
 
 function displayContacts(action) {
-	var numberOfContacts = parseInt(localStorage["contacts"]) + 1; 
+	var numberOfContacts = parseInt(window.localStorage.getItem("contacts")) + 1; 
 	var list = document.getElementById("contacts");
 	for(var i = 1;i < numberOfContacts;i++) {
-		if(localStorage[i + "_description"] != undefined) {
+		if(window.localStorage.getItem(i + "_description") != undefined) {
 			addEntry(i, action);
 		}
 	}
@@ -61,7 +63,7 @@ function clearAndHideAddForm() {
 	document.getElementById("addContactForm").style.visibility = "hidden";
     document.getElementById("mainButtons").style.visibility = "visible";
     document.getElementById("message").style.visibility = "hidden";
-    document.removeEventListener("backbutton", handleBackButton);
+    document.removeEventListener("backbutton", onBackKeyDown);
 }
 
 function getValueOf(id) {
@@ -69,18 +71,18 @@ function getValueOf(id) {
 }
 
 function removeContact(id) {
-	localStorage.removeItem(id + "_description");
-	localStorage.removeItem(id + "_number");
-	localStorage.removeItem(id + "_pin");
+	window.localStorage.removeItem(id + "_description");
+	window.localStorage.removeItem(id + "_number");
+	window.localStorage.removeItem(id + "_pin");
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(2);
 }
 
 function editContact(id) {
-	var description = localStorage[id + "_description"];
-	var number = localStorage[id + "_number"];
-	var pin = localStorage[id + "_pin"];
+	var description = window.localStorage.getItem(id + "_description");
+	var number = window.localStorage.getItem(id + "_number");
+	var pin = window.localStorage.getItem(id + "_pin");
 	document.getElementById("description").value = description;
 	document.getElementById("number").value = number;
 	document.getElementById("pin").value = pin;
@@ -89,12 +91,12 @@ function editContact(id) {
 }
 
 function call(id) {
-	var number = localStorage[id + "_number"];
-	var pin = localStorage[id + "_pin"];
+	var number = window.localStorage.getItem(id + "_number");
+	var pin = window.localStorage.getItem(id + "_pin");
 	if(pin == undefined || pin == null || pin == "") {
-		window.location = "tel:" + localStorage[id + "_number"];
+		window.location = "tel:" + window.localStorage.getItem(id + "_number");
 	} else {
-		window.location = "tel:" + localStorage[id + "_number"]  + "," + localStorage[id + "_pin"]  + "#";
+		window.location = "tel:" + window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
 	}
 }
 
@@ -104,30 +106,25 @@ function saveContact(id, description, number, pin) {
 		document.getElementById("message").style.visibility = "visible";
 		document.getElementById("addContactForm").style.visibility = "hidden";
 	} else {
-
 		if(id != "") {
-
-			localStorage[id + "_description"] = description;
-			localStorage[id + "_number"] = number;
-			localStorage[id + "_pin"] = pin;	
+			window.localStorage.setItem(id + "_description", description);
+			window.localStorage.setItem(id + "_number", number);
+			window.localStorage.setItem(id + "_pin", pin);	
 			var list = document.getElementById("contacts");
 			list.innerHTML = "";
 			displayContacts(0);
-
 		} else {
-
-			if(!localStorage["contacts"]) {
-				localStorage["contacts"] = 0;
+			if(!window.localStorage.getItem("contacts")) {
+				window.localStorage.setItem("contacts", 0);
 			}
-			localStorage["contacts"] = parseInt(localStorage["contacts"]) + 1;
-			var index = localStorage["contacts"];
-			localStorage[index + "_description"] = description;
-			localStorage[index + "_number"] = number;
-			localStorage[index + "_pin"] = pin;
+			window.localStorage.setItem("contacts", parseInt(window.localStorage.getItem("contacts")) + 1);
+			var index = window.localStorage.getItem("contacts");
+			window.localStorage.setItem(index + "_description", description);
+			window.localStorage.setItem(index + "_number", number);
+			window.localStorage.setItem(index + "_pin", pin);
 			addEntry(index, false);
-
 		}
-		window.history.go(-1);
+		clearAndHideAddForm();
 	}
 }
 
@@ -152,9 +149,8 @@ function addEntry(id, action) {
 			call(this.id);
 		};
 	}
-
 	entry.setAttribute("id", id);
-	entry.appendChild(document.createTextNode(localStorage[id + "_description"]));
+	entry.appendChild(document.createTextNode(window.localStorage.getItem(id + "_description")));
 	list.appendChild(entry);
 }
 
