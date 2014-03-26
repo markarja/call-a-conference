@@ -1,7 +1,8 @@
 function init() {
-	
+	language = window.navigator.language ||
+	           window.navigator.browserLanguage;
+	localize(language);
 	document.addEventListener("deviceready", onDeviceReady, false);
-	
 	displayContacts(0);
 }
 
@@ -45,7 +46,7 @@ function displayAddForm(title) {
 	displayContacts(0);
 	document.getElementById("editContactsImage").src = "res/edit.png";
 	document.getElementById("removeContactsImage").src = "res/empty.png";
-	document.getElementById("addFormTitle").innerHTML = title;
+	document.getElementById("addentry").innerHTML = title;
 	document.getElementById("addContactForm").style.visibility = "visible";
     document.getElementById("mainButtons").style.visibility = "hidden";
 }
@@ -102,7 +103,7 @@ function call(id) {
 
 function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
-		document.getElementById("messageText").innerHTML = "You must enter a description and a number to save the entry.";
+		document.getElementById("messageText").innerHTML = getMessage("errormessage");
 		document.getElementById("message").style.visibility = "visible";
 		document.getElementById("addContactForm").style.visibility = "hidden";
 	} else {
@@ -150,8 +151,19 @@ function addEntry(id, action) {
 		};
 	}
 	entry.setAttribute("id", id);
-	entry.appendChild(document.createTextNode(window.localStorage.getItem(id + "_description")));
+	var number = document.createElement("span");
+	var container = document.createElement("div");
+	container.innerHTML = window.localStorage.getItem(id + "_description");
+	number.innerHTML = "<br />" + getMessage("number") + ": " + window.localStorage.getItem(id + "_number");
+	var pin = window.localStorage.getItem(id + "_pin");
+	if(pin != undefined && pin != null && pin != "") {
+		number.innerHTML = number.innerHTML + ", " + getMessage("pin") + ": " + pin;
+	}
+	number.className = "number";
+	container.appendChild(number);
+	entry.appendChild(container);
 	list.appendChild(entry);
+	window.scrollTo(0,0);
 }
 
 function toggleEditOption(toggle) {
