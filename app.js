@@ -15,7 +15,7 @@ function onBackKeyDown() {
 	  hideMessage(); 
   	} else if(document.getElementById("addContactForm").style.visibility == "visible") {
 	  clearAndHideAddForm();
-  	} 
+  	}
 }
 
 function displayContacts(action) {
@@ -64,6 +64,7 @@ function clearAndHideAddForm() {
 	document.getElementById("addContactForm").style.visibility = "hidden";
     document.getElementById("mainButtons").style.visibility = "visible";
     document.getElementById("message").style.visibility = "hidden";
+	window.scrollTo(0,0);
     document.removeEventListener("backbutton", onBackKeyDown);
 }
 
