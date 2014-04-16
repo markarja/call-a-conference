@@ -1,5 +1,21 @@
-var language = "en-GB";
+var language = "en-US";
 var messages = {
+	"en-US" : [
+	    {"key" : "apptitle", "value" : "my conferences"},
+	    {"key" : "addentry", "value" : "ADD ENTRY"},
+	    {"key" : "entrydescription", "value" : "Description"},
+	    {"key" : "entrynumber", "value" : "Number"},
+	    {"key" : "entrypin", "value" : "Pin"},
+	    {"key" : "savelabel", "value" : "save"},
+	    {"key" : "backlabel", "value" : "back"},
+	    {"key" : "addlabel", "value" : "add conference"},
+	    {"key" : "editlabel", "value" : "toggle edit"},
+	    {"key" : "deletelabel", "value" : "toggle delete"},
+	    {"key" : "number", "value" : "number"},
+	    {"key" : "pin", "value" : "pin"},
+	    {"key" : "errormessage", "value" : "You must enter a description and a number to save the entry."},
+	    {"key" : "okbutton", "value" : "ok"}
+	],	
 	"en-GB" : [
 	    {"key" : "apptitle", "value" : "my conferences"},
 	    {"key" : "addentry", "value" : "ADD ENTRY"},
@@ -52,6 +68,9 @@ var messages = {
 
 function getMessage(key) {
 	var message = "?" + key + "?";
+	if(messages[language] == undefined) {
+            language = "en-US";
+        }
 	for(i = 0;i < messages[language].length;i++) {
 		if(messages[language][i].key == key) {
 			message = messages[language][i].value;
