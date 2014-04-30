@@ -98,7 +98,7 @@ function call(id) {
 	if(pin == undefined || pin == null || pin == "") {
 		window.location = "tel:" + window.localStorage.getItem(id + "_number");
 	} else {
-		window.location = "tel:" + window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
+		window.location = "tel:" + window.localStorage.getItem(id + "_number")  + "p" + window.localStorage.getItem(id + "_pin")  + "#";
 	}
 }
 
