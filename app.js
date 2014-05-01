@@ -3,7 +3,16 @@ function init() {
 	           window.navigator.browserLanguage;
 	localize(language);
 	document.addEventListener("deviceready", onDeviceReady, false);
+	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
+}
+
+function onOrientationChanged() {
+	if(portrait()) {
+		document.getElementById("mainButtons").style.bottom = "0px";
+	} else {
+		document.getElementById("mainButtons").style.bottom = "-85px";
+	}
 }
 
 function onDeviceReady() {
@@ -222,4 +231,12 @@ function onFieldFocus(id) {
 
 function onFieldBlur(id) {
 	document.getElementById(id).className = "textbox";
+}
+
+function portrait() {
+	if(window.innerHeight > window.innerWidth) {
+		return true;
+	} else {
+		return false;
+	}
 }
