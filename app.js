@@ -10,8 +10,12 @@ function init() {
 function onOrientationChanged() {
 	if(portrait()) {
 		document.getElementById("mainButtons").style.bottom = "0px";
+		document.getElementById("formButtons").style.bottom = "0px";
+		document.getElementById("addContactForm").style.bottom = "80px";
 	} else {
-		document.getElementById("mainButtons").style.bottom = "-85px";
+		document.getElementById("mainButtons").style.bottom = "-45px";
+		document.getElementById("formButtons").style.bottom = "-45px";
+		document.getElementById("addContactForm").style.bottom = "35px";
 	}
 }
 
