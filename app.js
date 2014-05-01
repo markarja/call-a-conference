@@ -30,12 +30,19 @@ function displayContacts(action) {
 	if(action == 1) {
 		document.getElementById("editContactsImage").src = "res/edit_.png";
 		document.getElementById("removeContactsImage").src = "res/empty.png";
+		document.getElementById("copyContactsImage").src = "res/copy.png";
 	} else if(action == 2) {
 		document.getElementById("removeContactsImage").src = "res/empty_.png";
 		document.getElementById("editContactsImage").src = "res/edit.png";
+		document.getElementById("copyContactsImage").src = "res/copy.png";
+	} else if(action ==3) {
+		document.getElementById("removeContactsImage").src = "res/empty.png";
+		document.getElementById("editContactsImage").src = "res/edit.png";
+		document.getElementById("copyContactsImage").src = "res/copy_.png";
 	} else {
 		document.getElementById("editContactsImage").src = "res/edit.png";
 		document.getElementById("removeContactsImage").src = "res/empty.png";
+		document.getElementById("copyContactsImage").src = "res/copy.png";
 	}
 }
 
@@ -89,7 +96,18 @@ function editContact(id) {
 	document.getElementById("number").value = number;
 	document.getElementById("pin").value = pin;
 	document.getElementById("ID").value = id;
-	displayAddForm("EDIT ENTRY");
+	displayAddForm(getMessage("editentry"));
+}
+
+function copyContact(id) {
+	var description = window.localStorage.getItem(id + "_description");
+	var number = window.localStorage.getItem(id + "_number");
+	var pin = window.localStorage.getItem(id + "_pin");
+	document.getElementById("description").value = description;
+	document.getElementById("number").value = number;
+	document.getElementById("pin").value = pin;
+	document.getElementById("ID").value = "";
+	displayAddForm(getMessage("addentry"));
 }
 
 function call(id) {
@@ -140,12 +158,18 @@ function addEntry(id, action) {
 		entry.onclick = function(event) {
 			editContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/edit.png)";	
+		entry.style.backgroundImage = "url(res/_edit.png)";	
 	} else if(action == 2) {
 		entry.onclick = function(event) {
 			removeContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/empty.png)";	
+		entry.style.backgroundImage = "url(res/_empty.png)";	
+	} else if(action == 3) {
+		entry.onclick = function(event) {
+			copyContact(this.id);
+		};
+		document.getElementById("addentry").innerHTML = getMessage("addentry");
+		entry.style.backgroundImage = "url(res/_copy.png)";	
 	} else {
 		entry.onclick = function(event) {
 			call(this.id);
@@ -179,7 +203,23 @@ function toggleDeleteOption(toggle) {
 	displayContacts(toggle ? 2 : 0);
 }
 
+function toggleCopyOption(toggle) {
+	var list = document.getElementById("contacts");
+	list.innerHTML = "";
+	displayContacts(toggle ? 3 : 0);	
+}
+
 function hideMessage() {
 	document.getElementById("message").style.visibility = "hidden";
 	document.getElementById("addContactForm").style.visibility = "visible";	
+}
+
+function onFieldFocus(id) {
+	document.getElementById(id).className = "textbox active";
+	var length = document.getElementById(id).value.length;
+	document.getElementById(id).setSelectionRange(length, length);
+}
+
+function onFieldBlur(id) {
+	document.getElementById(id).className = "textbox";
 }
