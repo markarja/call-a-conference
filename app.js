@@ -3,6 +3,7 @@ function init() {
 	           window.navigator.browserLanguage;
 	localize(language);
 	document.addEventListener("deviceready", onDeviceReady, false);
+	document.getElementById("loadingoverlay").style.visibility = "hidden";
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
 	toggleButtons();
@@ -261,5 +262,7 @@ function toggleButtons() {
 	} else {
 		document.getElementById('mainbuttons').style.bottom = "-60px";
 		document.getElementById("buttontable").style.visibility = "hidden";
+		document.getElementById("contacts").innerHTML = "";	
+		displayContacts(0);	
 	}
 }
