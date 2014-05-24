@@ -46,11 +46,11 @@ var messages = {
    	    {"key" : "savelabel", "value" : "tallenna"},
    	    {"key" : "backlabel", "value" : "takaisin"},
    	    {"key" : "addlabel", "value" : "lis&auml;&auml; palaveri"},
-	    {"key" : "copylabel", "value" : "vaihda kopiointi"},
-   	    {"key" : "editlabel", "value" : "vaihda muokkaus"},
-   	    {"key" : "deletelabel", "value" : "vaihda poisto"},
-   	    {"key" : "number", "value" : "numero"},
-   	    {"key" : "pin", "value" : "pin-koodi"},
+	    {"key" : "copylabel", "value" : "kopioi"},
+   	    {"key" : "editlabel", "value" : "muokkaa"},
+   	    {"key" : "deletelabel", "value" : "poista"},
+   	    {"key" : "number", "value" : "nro"},
+   	    {"key" : "pin", "value" : "pin"},
    	    {"key" : "errormessage", "value" : "Sinun on sy&ouml;tett&auml;v&auml; kuvaus ja numero tallentaaksesi palaverin."},
    	    {"key" : "okbutton", "value" : "ok"}
 	],
@@ -77,8 +77,8 @@ var messages = {
 function getMessage(key) {
 	var message = "?" + key + "?";
 	if(messages[language] == undefined) {
-            language = "en-US";
-        }
+		language = "en-US";
+    }
 	for(i = 0;i < messages[language].length;i++) {
 		if(messages[language][i].key == key) {
 			message = messages[language][i].value;

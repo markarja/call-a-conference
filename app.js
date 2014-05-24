@@ -5,17 +5,23 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
+	toggleButtons();
 }
 
 function onOrientationChanged() {
 	if(portrait()) {
-		document.getElementById("mainButtons").style.bottom = "0px";
-		document.getElementById("formButtons").style.bottom = "0px";
-		document.getElementById("addContactForm").style.bottom = "80px";
+		document.getElementById("contacts").innerHTML = "";
+		displayContacts(0);
+		document.getElementById("mainbuttons").style.visibility = "visible";
+		if(document.getElementById("mainbuttons").style.bottom == "0px") {
+			document.getElementById("buttontable").style.visibility = "visible";
+		}
 	} else {
-		document.getElementById("mainButtons").style.bottom = "-45px";
-		document.getElementById("formButtons").style.bottom = "-45px";
-		document.getElementById("addContactForm").style.bottom = "35px";
+		clearAndHideAddForm();
+		document.getElementById("contacts").innerHTML = "";	
+		displayContacts(0);	
+		document.getElementById("mainbuttons").style.visibility = "hidden";
+		document.getElementById("buttontable").style.visibility = "hidden";
 	}
 }
 
@@ -68,12 +74,14 @@ function displayAddForm(title) {
 	document.getElementById("removeContactsImage").src = "res/empty.png";
 	document.getElementById("addentry").innerHTML = title;
 	document.getElementById("addContactForm").style.visibility = "visible";
-    document.getElementById("mainButtons").style.visibility = "hidden";
+    document.getElementById("mainbuttons").style.visibility = "hidden";
+    document.getElementById("buttontable").style.visibility = "hidden";
 }
 
 function hideAddForm() {
 	document.getElementById("addContactForm").style.visibility = "hidden";
-	document.getElementById("mainButtons").style.visibility = "visible";
+	document.getElementById("mainbuttons").style.visibility = "visible";
+	document.getElementById("buttontable").style.visibility = "visible";
 }
 
 function clearAndHideAddForm() {
@@ -82,7 +90,8 @@ function clearAndHideAddForm() {
 	document.getElementById("pin").value = "";
 	document.getElementById("ID").value = "";
 	document.getElementById("addContactForm").style.visibility = "hidden";
-    document.getElementById("mainButtons").style.visibility = "visible";
+    document.getElementById("mainbuttons").style.visibility = "visible";
+    document.getElementById("buttontable").style.visibility = "visible";
     document.getElementById("message").style.visibility = "hidden";
 	window.scrollTo(0,0);
     document.removeEventListener("backbutton", onBackKeyDown);
@@ -242,5 +251,15 @@ function portrait() {
 		return true;
 	} else {
 		return false;
+	}
+}
+
+function toggleButtons() {
+	if(document.getElementById("mainbuttons").style.bottom == "-60px") {
+		document.getElementById("mainbuttons").style.bottom = "0px";
+		document.getElementById("buttontable").style.visibility = "visible";
+	} else {
+		document.getElementById('mainbuttons').style.bottom = "-60px";
+		document.getElementById("buttontable").style.visibility = "hidden";
 	}
 }

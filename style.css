@@ -52,6 +52,13 @@ div.buttons {
 	background-color: rgb(30,30,30);
 }
 
+div.togglebuttons {
+	background-color: rgb(30,30,30);
+	text-align: right;
+	padding-right: 10px;
+	font-size: 10px;		
+}
+
 table.buttons {
 	width: 100%; 
 	font-size: 9px;
