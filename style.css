@@ -5,6 +5,7 @@ body {
 	font-weight: lighter;
 	margin: 0;
   	-ms-touch-action: none;
+  	-ms-user-select: none;
 }
 
 html, body {
