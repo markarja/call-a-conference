@@ -66,6 +66,7 @@ function displayContacts(action) {
 }
 
 function displayAddForm(title) {
+	window.removeEventListener("resize", onOrientationChanged);
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
@@ -95,6 +96,7 @@ function clearAndHideAddForm() {
     document.getElementById("message").style.visibility = "hidden";
 	window.scrollTo(0,0);
     document.removeEventListener("backbutton", onBackKeyDown);
+    window.addEventListener("resize", onOrientationChanged, false);
 }
 
 function getValueOf(id) {
