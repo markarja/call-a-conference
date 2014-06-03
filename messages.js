@@ -49,7 +49,7 @@ var messages = {
 	    {"key" : "copylabel", "value" : "kopioi"},
    	    {"key" : "editlabel", "value" : "muokkaa"},
    	    {"key" : "deletelabel", "value" : "poista"},
-   	    {"key" : "number", "value" : "nro"},
+   	    {"key" : "number", "value" : "numero"},
    	    {"key" : "pin", "value" : "pin"},
    	    {"key" : "errormessage", "value" : "Sinun on sy&ouml;tett&auml;v&auml; kuvaus ja numero tallentaaksesi palaverin."},
    	    {"key" : "okbutton", "value" : "ok"}
