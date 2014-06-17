@@ -46,6 +46,8 @@ function displayContacts(action) {
 		}
 	}
 
+	sortList(document.getElementById("contacts"));
+	
 	if(action == 1) {
 		document.getElementById("editContactsImage").src = "res/edit_.png";
 		document.getElementById("removeContactsImage").src = "res/empty.png";
@@ -167,6 +169,7 @@ function saveContact(id, description, number, pin) {
 			window.localStorage.setItem(index + "_number", number);
 			window.localStorage.setItem(index + "_pin", pin);
 			addEntry(index, false);
+			sortList(document.getElementById("contacts"));
 		}
 		clearAndHideAddForm();
 	}
@@ -175,8 +178,6 @@ function saveContact(id, description, number, pin) {
 function addEntry(id, action) {
 	var list = document.getElementById("contacts");
 	var entry = document.createElement("li");
-	var remove = false;
-	var timeout = null;
 
 	if(action == 1) {
 		entry.onclick = function(event) {
@@ -266,4 +267,27 @@ function toggleButtons() {
 		document.getElementById("contacts").innerHTML = "";	
 		displayContacts(0);	
 	}
+}
+
+function sortList(ul){
+    var new_ul = ul.cloneNode(false);
+    var lis = [];
+    for(var i = ul.childNodes.length; i--;){
+        if(ul.childNodes[i].nodeName === "LI")
+            lis.push(ul.childNodes[i]);
+    }
+    lis.sort(function(a, b){
+        if(a.innerHTML.toUpperCase() > 
+           b.innerHTML.toUpperCase()) {
+          return 1;
+        } else if(a.innerHTML.toUpperCase() < 
+        		  b.innerHTML.toUpperCase()) {
+          return -1;
+        } else {
+          return 0;
+        }
+    });
+    for(var i = 0; i < lis.length; i++)
+        new_ul.appendChild(lis[i]);
+    ul.parentNode.replaceChild(new_ul, ul);
 }
