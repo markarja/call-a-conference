@@ -39,7 +39,7 @@ function onBackKeyDown() {
 
 function displayContacts(action) {
 	var numberOfContacts = parseInt(window.localStorage.getItem("contacts")) + 1; 
-	var list = document.getElementById("contacts");
+
 	for(var i = 1;i < numberOfContacts;i++) {
 		if(window.localStorage.getItem(i + "_description") != undefined) {
 			addEntry(i, action);
@@ -47,6 +47,13 @@ function displayContacts(action) {
 	}
 
 	sortList(document.getElementById("contacts"));
+
+	var list = document.getElementById("contacts");
+	var container = document.createElement("div");
+	container.innerHTML = "<p>&nbsp;</p>";
+	var entry = document.createElement("li");
+	entry.appendChild(container);
+	list.appendChild(entry);
 	
 	if(action == 1) {
 		document.getElementById("editContactsImage").src = "res/edit_.png";
@@ -168,8 +175,9 @@ function saveContact(id, description, number, pin) {
 			window.localStorage.setItem(index + "_description", description);
 			window.localStorage.setItem(index + "_number", number);
 			window.localStorage.setItem(index + "_pin", pin);
-			addEntry(index, false);
-			sortList(document.getElementById("contacts"));
+			var list = document.getElementById("contacts");
+			list.innerHTML = "";
+			displayContacts(0);
 		}
 		clearAndHideAddForm();
 	}
@@ -178,7 +186,8 @@ function saveContact(id, description, number, pin) {
 function addEntry(id, action) {
 	var list = document.getElementById("contacts");
 	var entry = document.createElement("li");
-
+	entry.setAttribute("class", "call");
+	
 	if(action == 1) {
 		entry.onclick = function(event) {
 			editContact(this.id);

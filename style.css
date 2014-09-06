@@ -71,15 +71,17 @@ table.buttons {
 	width: 100%;
 	padding-top: 40px;
 	overflow-y: scroll;
-	overflow-x: hidde;
+	overflow-x: hidden;
+	background-color: rgb(0,0,0);
 }
 
 ul {
 	list-style-type: none;
 	font-size: 20px;
+	background-color: rgb(0,0,0);
 }
 
-ul li {
+ul li.call {
 	background-image:url(res/call.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px; 
