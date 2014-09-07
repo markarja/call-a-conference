@@ -5,7 +5,6 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
-	toggleButtons();
 }
 
 function onOrientationChanged() {
@@ -56,21 +55,21 @@ function displayContacts(action) {
 	list.appendChild(entry);
 	
 	if(action == 1) {
-		document.getElementById("editContactsImage").src = "res/edit_.png";
-		document.getElementById("removeContactsImage").src = "res/empty.png";
-		document.getElementById("copyContactsImage").src = "res/copy.png";
+		document.getElementById("editContactsImage").src = "res/edit-ios_.png";
+		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
+		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
 	} else if(action == 2) {
-		document.getElementById("removeContactsImage").src = "res/empty_.png";
-		document.getElementById("editContactsImage").src = "res/edit.png";
-		document.getElementById("copyContactsImage").src = "res/copy.png";
+		document.getElementById("removeContactsImage").src = "res/empty-ios_.png";
+		document.getElementById("editContactsImage").src = "res/edit-ios.png";
+		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
 	} else if(action ==3) {
-		document.getElementById("removeContactsImage").src = "res/empty.png";
-		document.getElementById("editContactsImage").src = "res/edit.png";
-		document.getElementById("copyContactsImage").src = "res/copy_.png";
+		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
+		document.getElementById("editContactsImage").src = "res/edit-ios.png";
+		document.getElementById("copyContactsImage").src = "res/copy-ios_.png";
 	} else {
-		document.getElementById("editContactsImage").src = "res/edit.png";
-		document.getElementById("removeContactsImage").src = "res/empty.png";
-		document.getElementById("copyContactsImage").src = "res/copy.png";
+		document.getElementById("editContactsImage").src = "res/edit-ios.png";
+		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
+		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
 	}
 }
 
@@ -80,8 +79,8 @@ function displayAddForm(title) {
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
-	document.getElementById("editContactsImage").src = "res/edit.png";
-	document.getElementById("removeContactsImage").src = "res/empty.png";
+	document.getElementById("editContactsImage").src = "res/edit-ios.png";
+	document.getElementById("removeContactsImage").src = "res/empty-ios.png";
 	document.getElementById("addentry").innerHTML = title;
 	document.getElementById("addContactForm").style.visibility = "visible";
     document.getElementById("mainbuttons").style.visibility = "hidden";
@@ -192,18 +191,18 @@ function addEntry(id, action) {
 		entry.onclick = function(event) {
 			editContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/_edit.png)";	
+		entry.style.backgroundImage = "url(res/edit-ios.png)";	
 	} else if(action == 2) {
 		entry.onclick = function(event) {
 			removeContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/_empty.png)";	
+		entry.style.backgroundImage = "url(res/empty-ios.png)";	
 	} else if(action == 3) {
 		entry.onclick = function(event) {
 			copyContact(this.id);
 		};
 		document.getElementById("addentry").innerHTML = getMessage("addentry");
-		entry.style.backgroundImage = "url(res/_copy.png)";	
+		entry.style.backgroundImage = "url(res/copy-ios.png)";	
 	} else {
 		entry.onclick = function(event) {
 			call(this.id);

@@ -41,9 +41,9 @@
 			<div class="buttons" id="formButtons">
 				<table class="buttons">
 					<tr>
-						<td><img src="res/save.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
+						<td><img src="res/save-ios.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left.png" onclick="clearAndHideAddForm();" /></td>
+						<td><img src="res/arrow_left-ios.png" onclick="clearAndHideAddForm();" /></td>
 					</tr>
 					<tr>
 						<td class="label" id="savelabel">save</td>
@@ -54,22 +54,19 @@
 			</div>
 		</div>
 		<div class="buttons" id="mainbuttons">
-			<div id="togglebuttons" class="togglebuttons" onclick="toggleButtons();">
-				&bull;&nbsp;&bull;&nbsp;&bull;
-			</div>
 			<table id="buttontable" class="buttons">
 				<tr>
 					<td>
-						<img src="res/add.png" onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));" />
+						<img src="res/add-ios.png" onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));" />
 					</td>
 					<td>
-						<img id="editContactsImage" src="res/edit.png" onclick="toggleEditOption(this.src.indexOf('edit.png') != -1);" />
+						<img id="editContactsImage" src="res/edit-ios.png" onclick="toggleEditOption(this.src.indexOf('edit-ios.png') != -1);" />
 					</td>
 					<td> 
-						<img id="copyContactsImage" src="res/copy.png" onclick="toggleCopyOption(this.src.indexOf('copy.png') != -1);" />
+						<img id="copyContactsImage" src="res/copy-ios.png" onclick="toggleCopyOption(this.src.indexOf('copy-ios.png') != -1);" />
 					</td>
 					<td> 
-						<img id="removeContactsImage" src="res/empty.png" onclick="toggleDeleteOption(this.src.indexOf('empty.png') != -1);" />
+						<img id="removeContactsImage" src="res/empty-ios.png" onclick="toggleDeleteOption(this.src.indexOf('empty-ios.png') != -1);" />
 					</td>
 				</tr>
 				<tr>
