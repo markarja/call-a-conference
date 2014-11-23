@@ -156,6 +156,7 @@ function saveContact(id, description, number, pin) {
 	if(description == "" || number == "") {
 		document.getElementById("messageText").innerHTML = getMessage("errormessage");
 		document.getElementById("message").style.visibility = "visible";
+		document.getElementById("messageoverlay").style.visibility = "visible";
 		document.getElementById("addContactForm").style.visibility = "hidden";
 	} else {
 		if(id != "") {
@@ -244,6 +245,7 @@ function toggleCopyOption(toggle) {
 
 function hideMessage() {
 	document.getElementById("message").style.visibility = "hidden";
+	document.getElementById("messageoverlay").style.visibility = "hidden";
 	document.getElementById("addContactForm").style.visibility = "visible";	
 }
 
