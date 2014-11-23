@@ -16,7 +16,7 @@ var messages = {
 	    {"key" : "number", "value" : "number"},
 	    {"key" : "pin", "value" : "pin"},
 	    {"key" : "errormessage", "value" : "You must enter a description and a number to save the entry."},
-	    {"key" : "okbutton", "value" : "ok"}
+	    {"key" : "okbutton", "value" : "OK"}
 	],	
 	"en-GB" : [
 	    {"key" : "apptitle", "value" : "my conferences"},
@@ -34,7 +34,7 @@ var messages = {
 	    {"key" : "number", "value" : "number"},
 	    {"key" : "pin", "value" : "pin"},
 	    {"key" : "errormessage", "value" : "You must enter a description and a number to save the entry."},
-	    {"key" : "okbutton", "value" : "ok"}
+	    {"key" : "okbutton", "value" : "OK"}
 	],
 	"fi-FI" : [
    	    {"key" : "apptitle", "value" : "minun palaverit"},
@@ -52,7 +52,7 @@ var messages = {
    	    {"key" : "number", "value" : "numero"},
    	    {"key" : "pin", "value" : "pin"},
    	    {"key" : "errormessage", "value" : "Sinun on sy&ouml;tett&auml;v&auml; kuvaus ja numero tallentaaksesi palaverin."},
-   	    {"key" : "okbutton", "value" : "ok"}
+   	    {"key" : "okbutton", "value" : "OK"}
 	],
 	"sv-SE" : [
   	    {"key" : "apptitle", "value" : "mina m&ouml;ten"},
@@ -70,7 +70,7 @@ var messages = {
   	    {"key" : "number", "value" : "nummer"},
   	    {"key" : "pin", "value" : "pinkod"},
   	    {"key" : "errormessage", "value" : "Du b&ouml;r mata en beskrivning och ett nummer f&ouml;r att kunna spara."},
-  	    {"key" : "okbutton", "value" : "ok"}
+  	    {"key" : "okbutton", "value" : "OK"}
   	]
 };
 
