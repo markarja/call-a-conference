@@ -19,24 +19,44 @@
 		<div id="addContactForm">
 			<span id="addentry">ADD ENTRY</span>
 			<input type="hidden" id="ID" value="" />
-  			<div>
-				<span class="label" id="entrydescription">Description</span><br />
-				<input type="text" id="description" class="textbox" 
-					   onfocus="onFieldFocus(this.id);"
-					   onblur="onFieldBlur(this.id);" />	
-			</div>
-			<div>
-				<span class="label" id="entrynumber">Number</span><br/>
-				<input type="text" id="number" class="textbox"
-				       onfocus="onFieldFocus(this.id);"
-					   onblur="onFieldBlur(this.id);" />
-			</div>
-			<div>
-				<span class="label" id="entrypin">Pin</span><br />
-				<input type="number" id="pin" class="textbox"
-				       onfocus="onFieldFocus(this.id);"
-					   onblur="onFieldBlur(this.id);" />			
-			</div>
+  			<table class="fields">
+  				<tr>
+  					<td class="left">
+  					</td>
+  					<td class="align-left">
+  						<span class="label" id="entrydescription">Description</span><br />
+						<input type="text" id="description" class="textbox" 
+					  		   onfocus="onFieldFocus(this.id);"
+					           onblur="onFieldBlur(this.id);" />
+  					</td>
+  					<td class="right">
+  					</td>
+  				</tr>	
+				<tr>
+  					<td class="left">
+  					</td>
+  					<td class="align-left">
+						<span class="label" id="entrynumber">Number</span><br/>
+						<input type="text" id="number" class="textbox"
+						       onfocus="onFieldFocus(this.id);"
+							   onblur="onFieldBlur(this.id);" />
+				</td>
+  					<td class="right">
+  					</td>
+  				</tr>
+				<tr>
+  					<td class="left">
+  					</td>
+  					<td class="align-left">
+						<span class="label" id="entrypin">Pin</span><br />
+						<input type="number" id="pin" class="textbox"
+						       onfocus="onFieldFocus(this.id);"
+							   onblur="onFieldBlur(this.id);" />	
+					</td>
+  					<td class="right">
+  					</td>
+  				</tr>
+			</table>
 			<br />
 			<div class="buttons" id="formButtons">
 				<table class="buttons">

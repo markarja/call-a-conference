@@ -38,8 +38,9 @@ html, body {
 	font-family: Helvetica;
 	font-weight: lighter;
 	width: 100%;
-	background-color: rgb(220,220,220);	
-	border-radius: 0px;
+	background-color: rgb(228,229,230);	
+	border-radius: 5px;
+	border: 0px;
 }
 
 .active {
@@ -47,15 +48,14 @@ html, body {
 }
 
 div.buttons {
-	border-top: 1px solid rgb(240,240,240);
+	border-top: 1px solid rgb(175,175,175);
 	position: fixed; 
 	bottom: 0px; 
 	left: 0px;
 	width: 100%;
 	text-align: center; 
-	background-color: rgb(255,255,255);
+	background-color: rgb(247,247,247);	
 	padding-top: 5px;
-	background-color: rgb(250,250,250);
 }
 
 div.togglebuttons {
@@ -69,6 +69,22 @@ table.buttons {
 	width: 100%; 
 	font-size: 9px;
 	border-collapse: collapse;
+}
+
+table.fields {
+	width: 100%;	
+}
+
+td.left {
+	width: 5px;	
+}
+
+td.right {
+	width: 25px;	
+}
+
+td.align-left {
+	text-align: left;	
 }
 
 .list {
@@ -97,12 +113,13 @@ ul li.call {
 }
 
 #addContactForm {
-	border-top: 1px solid rgb(240,240,240);
+	border-top: 1px solid rgb(175,175,175);
 	visibility: hidden;
 	position: fixed; 
 	bottom: 68px;
 	width: 100%; 
-	background-color: rgb(255,255,255);	
+	background-color: rgb(247,247,247);	
+	text-align: center;
 }
 
 td.label {
@@ -137,7 +154,7 @@ td.label {
 	color: rgb(0,122,255); 
 	font-size: 20px; 
 	font-family: Helvetica;	
-	font-weight: bold;	
+	font-weight: normal;	
 	width: 100px;
 }
 
@@ -172,6 +189,6 @@ td.label {
 }
 
 .buttoncontainer {
-	border-top: 1px solid rgb(220,220,220);
+	border-top: 1px solid rgb(175,175,175);
 	padding: 10px;	
 }
