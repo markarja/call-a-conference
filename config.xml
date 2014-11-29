@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.markuskarjalainen.callaconference"
-        version   = "2.1.0">
+        version   = "1.0.0">
         
     <name>Call a Conference</name>
 
@@ -44,8 +44,32 @@
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
-    <icon src="icon.png"  gap:platform="winphone" />
+    
+    <icon src="icon.png" gap:platform="winphone" />
+    
+    <icon src="Icon-29.png" gap:platform="ios" width="29" height="29" />
+	<icon src="Icon-29@2x.png" gap:platform="ios" width="58" height="58" />
+	<icon src="Icon-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="Icon-40@2x.png" gap:platform="ios" width="80" height="80" />
+	<icon src="Icon-50.png" gap:platform="ios" width="50" height="50" />
+	<icon src="Icon-50@2x.png" gap:platform="ios" width="100" height="100" />
+	<icon src="Icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="Icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+	<icon src="Icon-72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
+	<icon src="Icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="Icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+	<icon src="Icon@2x.png" gap:platform="ios" width="114" height="114" />
+    
     <gap:splash src="splashscreen.jpg" gap:platform="winphone" />
+    
+    <gap:config-file platform="ios" parent="CFBundleVersion">
+		<string>1.0.0</string>
+	</gap:config-file>
+    
+    <gap:config-file platform="ios" parent="CFBundleShortVersionString">
+		<string>1.0.0</string>
+	</gap:config-file>
 
     <!--
         Define access to external domains.
