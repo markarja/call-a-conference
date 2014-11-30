@@ -1,6 +1,7 @@
 function init() {
 	language = window.navigator.language ||
 	           window.navigator.browserLanguage;
+	language = language.toLowerCase();
 	localize(language);
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
@@ -145,11 +146,17 @@ function copyContact(id) {
 function call(id) {
 	var number = window.localStorage.getItem(id + "_number");
 	var pin = window.localStorage.getItem(id + "_pin");
+	var link = document.createElement("a");
 	if(pin == undefined || pin == null || pin == "") {
-		window.location = "tel:" + window.localStorage.getItem(id + "_number");
+		link.href = "tel:" + window.localStorage.getItem(id + "_number");
 	} else {
-		window.location = "tel:" + window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
+		link.href = "tel:" + window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
 	}
+	link.style.visibility = "hidden";
+	link.style.position = "absolute";
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
 }
 
 function saveContact(id, description, number, pin) {

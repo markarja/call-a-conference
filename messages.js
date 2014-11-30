@@ -1,6 +1,6 @@
-var language = "en-US";
+var language = "en-us";
 var messages = {
-	"en-US" : [
+	"en-us" : [
 	    {"key" : "apptitle", "value" : "my conferences"},
 	    {"key" : "addentry", "value" : "ADD ENTRY"},
 	    {"key" : "editentry", "value" : "EDIT ENTRY"},
@@ -18,7 +18,7 @@ var messages = {
 	    {"key" : "errormessage", "value" : "You must enter a description and a number to save the entry."},
 	    {"key" : "okbutton", "value" : "OK"}
 	],	
-	"en-GB" : [
+	"en-gb" : [
 	    {"key" : "apptitle", "value" : "my conferences"},
 	    {"key" : "addentry", "value" : "ADD ENTRY"},
 	    {"key" : "editentry", "value" : "EDIT ENTRY"},
@@ -36,7 +36,7 @@ var messages = {
 	    {"key" : "errormessage", "value" : "You must enter a description and a number to save the entry."},
 	    {"key" : "okbutton", "value" : "OK"}
 	],
-	"fi-FI" : [
+	"fi-fi" : [
    	    {"key" : "apptitle", "value" : "minun palaverit"},
    	    {"key" : "addentry", "value" : "LIS&Auml;&Auml; PALAVERI"},
    	    {"key" : "editentry", "value" : "MUOKKAA PALAVERIA"},
@@ -54,7 +54,7 @@ var messages = {
    	    {"key" : "errormessage", "value" : "Sinun on sy&ouml;tett&auml;v&auml; kuvaus ja numero tallentaaksesi palaverin."},
    	    {"key" : "okbutton", "value" : "OK"}
 	],
-	"sv-SE" : [
+	"sv-se" : [
   	    {"key" : "apptitle", "value" : "mina m&ouml;ten"},
   	    {"key" : "addentry", "value" : "L&Auml;GG TILL"},
   	    {"key" : "editentry", "value" : "REDIGERA"},
