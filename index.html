@@ -7,6 +7,8 @@
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta content="telephone=no" name="format-detection">
 	 	<link rel="stylesheet" href="style.css" type="text/css">
+	 	<link rel="stylesheet" href="res/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	 	<link rel="stylesheet" href="res/pe-icon-7-stroke/css/helper.css">
 		<title>Call a Conference</title>
 		<script src="phonegap.js"></script>	
 		<script src="messages.js"></script>	
@@ -62,9 +64,13 @@
 			<div class="buttons" id="formButtons">
 				<table class="buttons">
 					<tr>
-						<td><img src="res/save-ios.png" onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))" /></td>
+						<td onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))">
+							<span class="pe-7s-diskette pe-2x pe-va"></span>
+						</td>
 						<td><img src="res/placeholder.png" /></td>
-						<td><img src="res/arrow_left-ios.png" onclick="clearAndHideAddForm();" /></td>
+						<td onclick="clearAndHideAddForm();">
+							<span class="pe-7s-angle-left pe-3x pe-va"></span>	
+						</td>
 					</tr>
 					<tr>
 						<td class="label" id="savelabel">save</td>
@@ -77,17 +83,17 @@
 		<div class="buttons" id="mainbuttons">
 			<table id="buttontable" class="buttons">
 				<tr>
-					<td>
-						<img src="res/add-ios.png" onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));" />
+					<td onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));">
+					    <span class="pe-7s-close pe-2x pe-va" style="-webkit-transform: rotate(45deg);" id="addContactButton"></span>
 					</td>
-					<td>
-						<img id="editContactsImage" src="res/edit-ios.png" onclick="toggleEditOption(this.src.indexOf('edit-ios.png') != -1);" />
+					<td onclick="toggleEditOption(document.getElementById('editContactsButton').style.color != ACTIVE);" >
+						<span class="pe-7s-note pe-2x pe-va" id="editContactsButton"></span>
 					</td>
-					<td> 
-						<img id="copyContactsImage" src="res/copy-ios.png" onclick="toggleCopyOption(this.src.indexOf('copy-ios.png') != -1);" />
+					<td onclick="toggleCopyOption(document.getElementById('copyContactsButton').style.color != ACTIVE);"> 
+						<span class="pe-7s-copy-file pe-2x pe-va" id="copyContactsButton"></span>
 					</td>
-					<td> 
-						<img id="removeContactsImage" src="res/empty-ios.png" onclick="toggleDeleteOption(this.src.indexOf('empty-ios.png') != -1);" />
+					<td onclick="toggleDeleteOption(document.getElementById('deleteContactsButton').style.color != ACTIVE);">
+						<span class="pe-7s-close pe-2x pe-va" id="deleteContactsButton"></span> 
 					</td>
 				</tr>
 				<tr>

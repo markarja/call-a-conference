@@ -1,3 +1,6 @@
+var ACTIVE = "rgb(0, 122, 255)";
+var INACTIVE = "rgb(150, 150, 150)";
+
 function init() {
 	language = window.navigator.language ||
 	           window.navigator.browserLanguage;
@@ -56,21 +59,21 @@ function displayContacts(action) {
 	list.appendChild(entry);
 	
 	if(action == 1) {
-		document.getElementById("editContactsImage").src = "res/edit-ios_.png";
-		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
-		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
+		document.getElementById("editContactsButton").style.color = ACTIVE;
+		document.getElementById("deleteContactsButton").style.color = INACTIVE;
+		document.getElementById("copyContactsButton").style.color = INACTIVE;
 	} else if(action == 2) {
-		document.getElementById("removeContactsImage").src = "res/empty-ios_.png";
-		document.getElementById("editContactsImage").src = "res/edit-ios.png";
-		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
+		document.getElementById("editContactsButton").style.color = INACTIVE;
+		document.getElementById("deleteContactsButton").style.color = ACTIVE;
+		document.getElementById("copyContactsButton").style.color = INACTIVE;
 	} else if(action ==3) {
-		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
-		document.getElementById("editContactsImage").src = "res/edit-ios.png";
-		document.getElementById("copyContactsImage").src = "res/copy-ios_.png";
+		document.getElementById("editContactsButton").style.color = INACTIVE;
+		document.getElementById("deleteContactsButton").style.color = INACTIVE;
+		document.getElementById("copyContactsButton").style.color = ACTIVE;
 	} else {
-		document.getElementById("editContactsImage").src = "res/edit-ios.png";
-		document.getElementById("removeContactsImage").src = "res/empty-ios.png";
-		document.getElementById("copyContactsImage").src = "res/copy-ios.png";
+		document.getElementById("editContactsButton").style.color = INACTIVE;
+		document.getElementById("deleteContactsButton").style.color = INACTIVE;
+		document.getElementById("copyContactsButton").style.color = INACTIVE;
 	}
 }
 
@@ -80,8 +83,9 @@ function displayAddForm(title) {
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
-	document.getElementById("editContactsImage").src = "res/edit-ios.png";
-	document.getElementById("removeContactsImage").src = "res/empty-ios.png";
+	document.getElementById("editContactsButton").style.color = INACTIVE;
+	document.getElementById("deleteContactsButton").style.color = INACTIVE;
+	document.getElementById("copyContactsButton").style.color = INACTIVE;
 	document.getElementById("addentry").innerHTML = title;
 	document.getElementById("addContactForm").style.visibility = "visible";
     document.getElementById("mainbuttons").style.visibility = "hidden";
@@ -193,34 +197,45 @@ function addEntry(id, action) {
 		entry.onclick = function(event) {
 			editContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/edit-ios.png)";	
 	} else if(action == 2) {
 		entry.onclick = function(event) {
 			removeContact(this.id);
 		};
-		entry.style.backgroundImage = "url(res/empty-ios.png)";	
 	} else if(action == 3) {
 		entry.onclick = function(event) {
 			copyContact(this.id);
 		};
 		document.getElementById("addentry").innerHTML = getMessage("addentry");
-		entry.style.backgroundImage = "url(res/copy-ios.png)";	
 	} else {
 		entry.onclick = function(event) {
 			call(this.id);
 		};
 	}
 	entry.setAttribute("id", id);
-	var number = document.createElement("span");
+	var number = "";
 	var container = document.createElement("div");
-	container.innerHTML = window.localStorage.getItem(id + "_description");
-	number.innerHTML = "<br />" + getMessage("number") + ": " + window.localStorage.getItem(id + "_number");
+	var icon = "pe-7s-call";
+	if(action == 1) {
+		icon = "pe-7s-note";
+	} else if(action == 2) {
+		icon = "pe-7s-close";
+	} else if(action == 3) {
+		icon = "pe-7s-copy-file";
+	}
+	
+	number = getMessage("number") + ": " + window.localStorage.getItem(id + "_number");
 	var pin = window.localStorage.getItem(id + "_pin");
 	if(pin != undefined && pin != null && pin != "") {
-		number.innerHTML = number.innerHTML + ", " + getMessage("pin") + ": " + pin;
+		number = number + ", " + getMessage("pin") + ": " + pin;
 	}
-	number.className = "number";
-	container.appendChild(number);
+	
+	container.innerHTML = 
+		'<table><tr><td rowspan="2">' + '<span class="' + 
+			icon + ' pe-2x pe-va"></span></td><td>' + 
+			window.localStorage.getItem(id + "_description") + 
+			'</td></tr><tr><td class="number">' + 
+			number + '</td></tr></table>';
+	
 	entry.appendChild(container);
 	list.appendChild(entry);
 	window.scrollTo(0,0);
