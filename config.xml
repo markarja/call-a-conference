@@ -68,11 +68,11 @@
 	<gap:splash src="iPhone6-portrait@2x.png" gap:platform="ios" width="750" height="1334" />
     
     <gap:config-file platform="ios" parent="CFBundleVersion">
-		<string>1.0.3</string>
+		<string>1.0.4</string>
 	</gap:config-file>
     
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-		<string>1.0.3</string>
+		<string>1.0.4</string>
 	</gap:config-file>
 
     <access origin="*"/>
