@@ -6,6 +6,7 @@ function init() {
 	           window.navigator.browserLanguage;
 	language = language.toLowerCase();
 	localize(language);
+	onDeviceReady();
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
@@ -245,8 +246,8 @@ function addEntry(id, action) {
 	}
 	
 	container.innerHTML = 
-		'<table><tr><td rowspan="2">' + '<span class="' + 
-			icon + ' pe-2x pe-va"></span></td><td>' + 
+		'<table><tr><td rowspan="2" style="vertical-align: top;">' + '<span class="' + 
+			icon + ' pe-va"></span></td><td>' + 
 			window.localStorage.getItem(id + "_description") + 
 			'</td></tr><tr><td class="number">' + 
 			number + '</td></tr></table>';
