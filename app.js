@@ -246,8 +246,8 @@ function addEntry(id, action) {
 	}
 	
 	container.innerHTML = 
-		'<table><tr><td rowspan="2" style="vertical-align: top;">' + '<span class="' + 
-			icon + ' pe-va"></span></td><td>' + 
+		'<table><tr><td rowspan="2" class="call">' + '<span class="' + 
+			icon + ' pe-va"></span></td><td class="description">' + 
 			window.localStorage.getItem(id + "_description") + 
 			'</td></tr><tr><td class="number">' + 
 			number + '</td></tr></table>';
