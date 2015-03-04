@@ -19,7 +19,7 @@
 		<div class="list">
 			<ul id="contacts"></ul>
 		</div>
-		<div id="addContactForm">
+		<div id="addcontactform">
 			<span id="addentry">ADD ENTRY</span>
 			<input type="hidden" id="ID" value="" />
   			<table class="fields">
@@ -86,14 +86,14 @@
 					<td onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));">
 					    <span class="pe-7s-close pe-2x pe-va" style="-webkit-transform: rotate(45deg);" id="addContactButton"></span>
 					</td>
-					<td onclick="toggleEditOption(document.getElementById('editContactsButton').style.color != ACTIVE);" >
-						<span class="pe-7s-note pe-2x pe-va" id="editContactsButton"></span>
+					<td onclick="toggleEditOption(document.getElementById('editcontactsbutton').style.color != ACTIVE);" >
+						<span class="pe-7s-note pe-2x pe-va" id="editcontactsbutton"></span>
 					</td>
-					<td onclick="toggleCopyOption(document.getElementById('copyContactsButton').style.color != ACTIVE);"> 
-						<span class="pe-7s-copy-file pe-2x pe-va" id="copyContactsButton"></span>
+					<td onclick="toggleCopyOption(document.getElementById('copycontactsbutton').style.color != ACTIVE);"> 
+						<span class="pe-7s-copy-file pe-2x pe-va" id="copycontactsbutton"></span>
 					</td>
-					<td onclick="toggleDeleteOption(document.getElementById('deleteContactsButton').style.color != ACTIVE);">
-						<span class="pe-7s-close pe-2x pe-va" id="deleteContactsButton"></span> 
+					<td onclick="toggleDeleteOption(document.getElementById('deletecontactsbutton').style.color != ACTIVE);">
+						<span class="pe-7s-close pe-2x pe-va" id="deletecontactsbutton"></span> 
 					</td>
 				</tr>
 				<tr>

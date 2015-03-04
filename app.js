@@ -1,5 +1,5 @@
 var ACTIVE = "rgb(0, 122, 255)";
-var INACTIVE = "rgb(150, 150, 150)";
+var INACTIVE = "rgb(196, 196, 196)";
 
 function init() {
 	language = window.navigator.language ||
@@ -35,7 +35,7 @@ function onDeviceReady() {
 function onBackKeyDown() {
 	if(document.getElementById("message").style.visibility == "visible") {
 	  hideMessage(); 
-  	} else if(document.getElementById("addContactForm").style.visibility == "visible") {
+  	} else if(document.getElementById("addcontactform").style.visibility == "visible") {
 	  clearAndHideAddForm();
   	}
 }
@@ -59,21 +59,33 @@ function displayContacts(action) {
 	list.appendChild(entry);
 	
 	if(action == 1) {
-		document.getElementById("editContactsButton").style.color = ACTIVE;
-		document.getElementById("deleteContactsButton").style.color = INACTIVE;
-		document.getElementById("copyContactsButton").style.color = INACTIVE;
+		document.getElementById("editcontactsbutton").style.color = ACTIVE;
+		document.getElementById("copycontactsbutton").style.color = INACTIVE;
+		document.getElementById("deletecontactsbutton").style.color = INACTIVE;
+		document.getElementById("editlabel").style.color = ACTIVE;
+		document.getElementById("copylabel").style.color = INACTIVE;
+		document.getElementById("deletelabel").style.color = INACTIVE;
 	} else if(action == 2) {
-		document.getElementById("editContactsButton").style.color = INACTIVE;
-		document.getElementById("deleteContactsButton").style.color = ACTIVE;
-		document.getElementById("copyContactsButton").style.color = INACTIVE;
+		document.getElementById("editcontactsbutton").style.color = INACTIVE;
+		document.getElementById("copycontactsbutton").style.color = INACTIVE;
+		document.getElementById("deletecontactsbutton").style.color = ACTIVE;
+		document.getElementById("editlabel").style.color = INACTIVE;
+		document.getElementById("copylabel").style.color = INACTIVE;
+		document.getElementById("deletelabel").style.color = ACTIVE;
 	} else if(action ==3) {
-		document.getElementById("editContactsButton").style.color = INACTIVE;
-		document.getElementById("deleteContactsButton").style.color = INACTIVE;
-		document.getElementById("copyContactsButton").style.color = ACTIVE;
+		document.getElementById("editcontactsbutton").style.color = INACTIVE;
+		document.getElementById("copycontactsbutton").style.color = ACTIVE;
+		document.getElementById("deletecontactsbutton").style.color = INACTIVE;
+		document.getElementById("editlabel").style.color = INACTIVE;
+		document.getElementById("copylabel").style.color = ACTIVE;
+		document.getElementById("deletelabel").style.color = INACTIVE;
 	} else {
-		document.getElementById("editContactsButton").style.color = INACTIVE;
-		document.getElementById("deleteContactsButton").style.color = INACTIVE;
-		document.getElementById("copyContactsButton").style.color = INACTIVE;
+		document.getElementById("editcontactsbutton").style.color = INACTIVE;
+		document.getElementById("copycontactsbutton").style.color = INACTIVE;
+		document.getElementById("deletecontactsbutton").style.color = INACTIVE;
+		document.getElementById("editlabel").style.color = INACTIVE;
+		document.getElementById("copylabel").style.color = INACTIVE;
+		document.getElementById("deletelabel").style.color = INACTIVE;
 	}
 }
 
@@ -83,17 +95,20 @@ function displayAddForm(title) {
 	var list = document.getElementById("contacts");
 	list.innerHTML = "";
 	displayContacts(0);
-	document.getElementById("editContactsButton").style.color = INACTIVE;
-	document.getElementById("deleteContactsButton").style.color = INACTIVE;
-	document.getElementById("copyContactsButton").style.color = INACTIVE;
+	document.getElementById("editcontactsbutton").style.color = INACTIVE;
+	document.getElementById("deletecontactsbutton").style.color = INACTIVE;
+	document.getElementById("copycontactsbutton").style.color = INACTIVE;
+	document.getElementById("editlabel").style.color = INACTIVE;
+	document.getElementById("copylabel").style.color = INACTIVE;
+	document.getElementById("deletelabel").style.color = INACTIVE;
 	document.getElementById("addentry").innerHTML = title;
-	document.getElementById("addContactForm").style.visibility = "visible";
+	document.getElementById("addcontactform").style.visibility = "visible";
     document.getElementById("mainbuttons").style.visibility = "hidden";
     document.getElementById("buttontable").style.visibility = "hidden";
 }
 
 function hideAddForm() {
-	document.getElementById("addContactForm").style.visibility = "hidden";
+	document.getElementById("addcontactform").style.visibility = "hidden";
 	document.getElementById("mainbuttons").style.visibility = "visible";
 	document.getElementById("buttontable").style.visibility = "visible";
 }
@@ -103,7 +118,7 @@ function clearAndHideAddForm() {
 	document.getElementById("number").value = "";
 	document.getElementById("pin").value = "";
 	document.getElementById("ID").value = "";
-	document.getElementById("addContactForm").style.visibility = "hidden";
+	document.getElementById("addcontactform").style.visibility = "hidden";
     document.getElementById("mainbuttons").style.visibility = "visible";
     document.getElementById("buttontable").style.visibility = "visible";
     document.getElementById("message").style.visibility = "hidden";
@@ -162,7 +177,7 @@ function saveContact(id, description, number, pin) {
 		document.getElementById("messageText").innerHTML = getMessage("errormessage");
 		document.getElementById("message").style.visibility = "visible";
 		document.getElementById("messageoverlay").style.visibility = "visible";
-		document.getElementById("addContactForm").style.visibility = "hidden";
+		document.getElementById("addcontactform").style.visibility = "hidden";
 	} else {
 		if(id != "") {
 			window.localStorage.setItem(id + "_description", description);
@@ -262,7 +277,7 @@ function toggleCopyOption(toggle) {
 function hideMessage() {
 	document.getElementById("message").style.visibility = "hidden";
 	document.getElementById("messageoverlay").style.visibility = "hidden";
-	document.getElementById("addContactForm").style.visibility = "visible";	
+	document.getElementById("addcontactform").style.visibility = "visible";	
 }
 
 function onFieldFocus(id) {
