@@ -1,5 +1,5 @@
 var ACTIVE = "rgb(0, 122, 255)";
-var INACTIVE = "rgb(196, 196, 196)";
+var INACTIVE = "rgb(100, 100, 100)";
 
 function init() {
 	language = window.navigator.language ||
