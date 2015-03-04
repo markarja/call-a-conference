@@ -6,7 +6,6 @@ function init() {
 	           window.navigator.browserLanguage;
 	language = language.toLowerCase();
 	localize(language);
-	onDeviceReady();
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
