@@ -82,7 +82,7 @@ td.left {
 }
 
 td.right {
-	width: 25px;	
+	width: 0px;	
 }
 
 td.align-left {
@@ -148,17 +148,17 @@ td.label {
 	width: 80%; 
 	height: 110px;
 	text-align: center;
-	background-color: rgb(255,255,255);
-	color: rgb(0,0,0);
+	background-color: rgb(50,50,50);
+	color: rgb(255,255,255);
 	visibility: hidden;
 	border-radius: 5px;
 	z-index: 3;
 }
 
 .button {
-	background-color: rgb(255,255,255); 
+	background-color: rgb(50,50,50); 
 	border: 0px;
-	color: rgb(0,122,255); 
+	color: rgb(255,255,255); 
 	font-size: 20px; 
 	font-family: Helvetica;	
 	font-weight: normal;	
@@ -196,6 +196,6 @@ td.label {
 }
 
 .buttoncontainer {
-	border-top: 1px solid rgb(175,175,175);
+	border-top: 1px solid rgb(30,30,30);
 	padding: 10px;	
 }

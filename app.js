@@ -1,4 +1,4 @@
-var ACTIVE = "rgb(255,255,255)";
+var ACTIVE = "rgb(255, 255, 255)";
 var INACTIVE = "rgb(100, 100, 100)";
 
 function init() {
@@ -242,13 +242,13 @@ function addEntry(id, action) {
 	entry.setAttribute("id", id);
 	var number = "";
 	var container = document.createElement("div");
-	var icon = "pe-7s-call";
+	var icon = "fa-phone";
 	if(action == 1) {
-		icon = "pe-7s-note";
+		icon = "fa-edit";
 	} else if(action == 2) {
-		icon = "pe-7s-close";
+		icon = "fa-remove";
 	} else if(action == 3) {
-		icon = "pe-7s-copy-file";
+		icon = "fa-copy";
 	}
 	
 	number = getMessage("number") + ": " + window.localStorage.getItem(id + "_number");
@@ -258,8 +258,8 @@ function addEntry(id, action) {
 	}
 	
 	container.innerHTML = 
-		'<table><tr><td rowspan="2" class="call">' + '<span class="' + 
-			icon + ' pe-va"></span></td><td class="description">' + 
+		'<table><tr><td rowspan="2" class="call">' + '<i class="fa ' + 
+			icon + '" style="font-size: 30px;"></i></td><td class="description">' + 
 			window.localStorage.getItem(id + "_description") + 
 			'</td></tr><tr><td class="number">' + 
 			number + '</td></tr></table>';

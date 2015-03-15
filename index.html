@@ -7,8 +7,7 @@
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta content="telephone=no" name="format-detection">
 	 	<link rel="stylesheet" href="style.css" type="text/css">
-	 	<link rel="stylesheet" href="res/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-	 	<link rel="stylesheet" href="res/pe-icon-7-stroke/css/helper.css">
+	 	<link rel="stylesheet" href="res/font-awesome-4.3.0/css/font-awesome.min.css">
 		<title>Call a Conference</title>
 		<script src="phonegap.js"></script>	
 		<script src="messages.js"></script>	
@@ -65,11 +64,11 @@
 				<table class="buttons">
 					<tr>
 						<td onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))">
-							<span class="pe-7s-diskette pe-2x pe-va"></span>
+							<i class="fa fa-save" style="font-size: 25px;"></i>
 						</td>
 						<td><img src="res/placeholder.png" /></td>
 						<td onclick="clearAndHideAddForm();">
-							<span class="pe-7s-angle-left pe-3x pe-va"></span>	
+							<i class="fa fa-angle-left" style="font-size: 25px;"></i>
 						</td>
 					</tr>
 					<tr>
@@ -84,16 +83,16 @@
 			<table id="buttontable" class="buttons">
 				<tr>
 					<td onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));">
-					    <span class="pe-7s-close pe-2x pe-va" style="-webkit-transform: rotate(45deg);" id="addContactButton"></span>
+						<i class="fa fa-plus" style="font-size: 25px;" id="addContactButton"></i>
 					</td>
 					<td onclick="toggleEditOption(document.getElementById('editcontactsbutton').style.color != ACTIVE);" >
-						<span class="pe-7s-note pe-2x pe-va" id="editcontactsbutton"></span>
+						<i class="fa fa-edit" style="font-size: 25px;" id="editcontactsbutton"></i>
 					</td>
 					<td onclick="toggleCopyOption(document.getElementById('copycontactsbutton').style.color != ACTIVE);"> 
-						<span class="pe-7s-copy-file pe-2x pe-va" id="copycontactsbutton"></span>
+						<i class="fa fa-copy" style="font-size: 25px;" id="copycontactsbutton"></i>
 					</td>
 					<td onclick="toggleDeleteOption(document.getElementById('deletecontactsbutton').style.color != ACTIVE);">
-						<span class="pe-7s-close pe-2x pe-va" id="deletecontactsbutton"></span> 
+						<i class="fa fa-remove" style="font-size: 25px;" id="deletecontactsbutton"></i>
 					</td>
 				</tr>
 				<tr>
