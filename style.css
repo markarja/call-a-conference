@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 	color: rgb(100,100,100);
 	font-family: Helvetica;	
 	font-weight: lighter;
@@ -12,7 +12,7 @@ body {
 
 html, body {
 	height: 100%;	
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 }
 
 .title {
@@ -22,8 +22,8 @@ html, body {
 	font-family: Helvetica;
 	position: fixed;
 	top: 0px;
-	background-color: rgb(255,255,255);
-	color: rgb(0,0,0);
+	background-color: rgb(0,0,0);
+	color: rgb(255,255,255);
 	z-index: 1;
 	width: 100%;
 	text-align: center;
@@ -50,19 +50,19 @@ html, body {
 }
 
 div.buttons {
-	border-top: 1px solid rgb(175,175,175);
+	border-top: 1px solid rgb(50,50,50);
 	position: fixed; 
 	bottom: 0px; 
 	left: 0px;
 	width: 100%;
 	text-align: center; 
-	background-color: rgb(247,247,247);	
+	background-color: rgb(30,30,30);	
 	color: rgb(100,100,100);
 	padding-top: 5px;
 }
 
 div.togglebuttons {
-	background-color: rgb(30,30,30);
+	background-color: rgb(30,30,30);	
 	text-align: right;
 	padding-right: 10px;
 	font-size: 10px;		
@@ -94,13 +94,13 @@ td.align-left {
 	padding-top: 45px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 }
 
 ul {
 	list-style-type: none;
 	font-size: 20px;
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 }
 
 ul li.call {
@@ -110,7 +110,7 @@ ul li.call {
 	padding-bottom: 0px;
 	margin-left: -40px;
 	margin-top: 10px;
-	background-color: rgb(255,255,255);
+	background-color: rgb(0,0,0);
 }
 
 td.call {
@@ -118,16 +118,16 @@ td.call {
 }
 
 td.description {
-	color: rgb(0,0,0);	
+	color: rgb(255,255,255);
 }
 
 #addcontactform {
-	border-top: 1px solid rgb(175,175,175);
+	border-top: 1px solid rgb(50,50,50);
 	visibility: hidden;
 	position: fixed; 
 	bottom: 68px;
 	width: 100%; 
-	background-color: rgb(247,247,247);	
+	background-color: rgb(30,30,30);	
 	text-align: center;
 }
 
