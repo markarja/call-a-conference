@@ -1,4 +1,4 @@
-var ACTIVE = "rgb(0, 122, 255)";
+var ACTIVE = "rgb(255,255,255)";
 var INACTIVE = "rgb(100, 100, 100)";
 
 function init() {
@@ -9,6 +9,7 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
+	onDeviceReady();
 }
 
 function onOrientationChanged() {
@@ -180,9 +181,7 @@ function call(id) {
 			alert("Dialer Error:" + err);
 		}
 	  },
-	  function(success) { 
-		  alert('Dialing succeeded'); 
-	  }
+	  function(success) { }
 	);
 }
 
