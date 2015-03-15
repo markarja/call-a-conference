@@ -165,11 +165,25 @@ function copyContact(id) {
 function call(id) {
 	var number = window.localStorage.getItem(id + "_number");
 	var pin = window.localStorage.getItem(id + "_pin");
+	var numberToDial = "";
 	if(pin == undefined || pin == null || pin == "") {
-		window.location = "tel:" + window.localStorage.getItem(id + "_number");
+		numberToDial = window.localStorage.getItem(id + "_number");
 	} else {
-		window.location = "tel:" + window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
+		numberToDial = window.localStorage.getItem(id + "_number")  + "," + window.localStorage.getItem(id + "_pin")  + "#";
 	}
+	
+	phonedialer.dial(numberToDial, 
+	  function(err) {
+		if (err == "empty") { 
+			alert("Unknown phone number"); 
+		} else { 
+			alert("Dialer Error:" + err);
+		}
+	  },
+	  function(success) { 
+		  alert('Dialing succeeded'); 
+	  }
+	);
 }
 
 function saveContact(id, description, number, pin) {
