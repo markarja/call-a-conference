@@ -82,7 +82,7 @@ td.left {
 }
 
 td.right {
-	width: 0px;	
+	width: 5px;	
 }
 
 td.align-left {
@@ -114,7 +114,8 @@ ul li.call {
 }
 
 td.call {
-	vertical-align: top;		
+	vertical-align: top;	
+	width: 35px;	
 }
 
 td.description {
@@ -198,4 +199,8 @@ td.label {
 .buttoncontainer {
 	border-top: 1px solid rgb(30,30,30);
 	padding: 10px;	
+}
+
+i.icon-size {
+	font-size: 30px;	
 }

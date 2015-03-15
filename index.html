@@ -64,11 +64,11 @@
 				<table class="buttons">
 					<tr>
 						<td onclick="saveContact(getValueOf('ID'), getValueOf('description'), getValueOf('number'), getValueOf('pin'))">
-							<i class="fa fa-save" style="font-size: 25px;"></i>
+							<i class="fa fa-save icon-size"></i>
 						</td>
 						<td><img src="res/placeholder.png" /></td>
 						<td onclick="clearAndHideAddForm();">
-							<i class="fa fa-angle-left" style="font-size: 25px;"></i>
+							<i class="fa fa-angle-left icon-size"></i>
 						</td>
 					</tr>
 					<tr>
@@ -83,16 +83,16 @@
 			<table id="buttontable" class="buttons">
 				<tr>
 					<td onclick="document.getElementById('ID').value = '';displayAddForm(getMessage('addentry'));">
-						<i class="fa fa-plus" style="font-size: 25px;" id="addContactButton"></i>
+						<i class="fa fa-plus icon-size" id="addContactButton"></i>
 					</td>
 					<td onclick="toggleEditOption(document.getElementById('editcontactsbutton').style.color != ACTIVE);" >
-						<i class="fa fa-edit" style="font-size: 25px;" id="editcontactsbutton"></i>
+						<i class="fa fa-edit icon-size" id="editcontactsbutton"></i>
 					</td>
 					<td onclick="toggleCopyOption(document.getElementById('copycontactsbutton').style.color != ACTIVE);"> 
-						<i class="fa fa-copy" style="font-size: 25px;" id="copycontactsbutton"></i>
+						<i class="fa fa-copy icon-size" id="copycontactsbutton"></i>
 					</td>
 					<td onclick="toggleDeleteOption(document.getElementById('deletecontactsbutton').style.color != ACTIVE);">
-						<i class="fa fa-remove" style="font-size: 25px;" id="deletecontactsbutton"></i>
+						<i class="fa fa-remove icon-size" id="deletecontactsbutton"></i>
 					</td>
 				</tr>
 				<tr>

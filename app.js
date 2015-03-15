@@ -9,7 +9,6 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	window.addEventListener("resize", onOrientationChanged, false);
 	displayContacts(0);
-	onDeviceReady();
 }
 
 function onOrientationChanged() {
