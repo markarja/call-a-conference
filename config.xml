@@ -34,6 +34,7 @@
 
     <icon src="icon.png" />
     
+    <icon src="icon.png" gap:platform="android" />
     <icon src="icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
